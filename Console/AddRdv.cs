@@ -43,7 +43,7 @@ namespace Console
         {
             if (dateRdvTextBox.Text == "" )
             {
-                MessageBox.Show("Attention une informration est vide !");
+                MessageBox.Show("Be careful, informration is empty !");
             }
             else
             {

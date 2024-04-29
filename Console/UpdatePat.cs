@@ -49,35 +49,40 @@ namespace Console
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(patientIDTextBox.Text);
-
-
-            string nom = nomPatTextBox.Text;
-            string prenom = prenomPatTextBox.Text;
-            string sexe = sexeTextBox.Text;
-            string adr = adrPatTextBox.Text;
-
-
-
-            var updatePatient = new Patient
+            if (prenomPatTextBox.Text == "" || nomPatTextBox.Text == "" || sexeTextBox.Text == "" || adrPatTextBox.Text == "")
             {
-                PatientID = id,
-                nomPat = nom,
-                prenomPat = prenom,
-                sexe = sexe,
-                adrPat = adr,
+                MessageBox.Show("Be careful, informration is empty !");
+            }
+            else {
+                int id = int.Parse(patientIDTextBox.Text);
+
+
+                string nom = nomPatTextBox.Text;
+                string prenom = prenomPatTextBox.Text;
+                string sexe = sexeTextBox.Text;
+                string adr = adrPatTextBox.Text;
 
 
 
-            };
+                var updatePatient = new Patient
+                {
+                    PatientID = id,
+                    nomPat = nom,
+                    prenomPat = prenom,
+                    sexe = sexe,
+                    adrPat = adr,
+                };
 
 
-            PatientService patientService = new PatientService(new GestionCabinetContext());
-            patientService.UpdatePatient(updatePatient);
-            UpdatePat_Load(sender, e);
-            FormPatient pat = new FormPatient();
-            pat.Show();
-            this.Hide();
+                PatientService patientService = new PatientService(new GestionCabinetContext());
+                patientService.UpdatePatient(updatePatient);
+                UpdatePat_Load(sender, e);
+                FormPatient pat = new FormPatient();
+                pat.Show();
+                this.Hide();
+                MessageBox.Show("Update with sucsess !");
+            }
+            
         }
 
         private void patientIDTextBox_TextChanged(object sender, EventArgs e)

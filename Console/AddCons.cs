@@ -41,7 +41,7 @@ namespace Console
         {
             if (dateConsTextBox.Text=="" || recapConsTextBox.Text=="")
             {
-                MessageBox.Show("Attention une informration est vide !");
+                MessageBox.Show("Be careful, informration is empty !");
             }
             else {
 
@@ -57,6 +57,7 @@ namespace Console
                 FormConsultation cons = new FormConsultation();
                 cons.Show();
                 this.Hide();
+                MessageBox.Show("Add with sucsess !");
             }
             
         }

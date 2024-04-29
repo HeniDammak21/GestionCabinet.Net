@@ -41,30 +41,39 @@ namespace Console
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(rendezvousIDTextBox.Text);
-
-
-            string date = dateRdvTextBox.Text;
-            int patientID = Convert.ToInt32(comboBox1.SelectedValue);
-            int medecinID = Convert.ToInt32(comboBox2.SelectedValue);
-
-
-
-
-            var updatedCons = new Rendezvous
+            if (dateRdvTextBox.Text == "")
             {
-                RendezvousID = id,
-                dateRdv = date,
-                PatientID = patientID,
-                MedecinID = medecinID,
+                MessageBox.Show("Attention une informration est vide !");
+            }
+            else
+            {
+                int id = int.Parse(rendezvousIDTextBox.Text);
 
-            };
-            RendezvousService consService = new RendezvousService(new GestionCabinetContext());
-            consService.UpdateRendezvous(updatedCons);
-            UpdateRdv_Load(sender, e);
-            FormRdv rdv = new FormRdv();
-            rdv.Show();
-            this.Hide();
+
+                string date = dateRdvTextBox.Text;
+                int patientID = Convert.ToInt32(comboBox1.SelectedValue);
+                int medecinID = Convert.ToInt32(comboBox2.SelectedValue);
+
+
+
+
+                var updatedCons = new Rendezvous
+                {
+                    RendezvousID = id,
+                    dateRdv = date,
+                    PatientID = patientID,
+                    MedecinID = medecinID,
+
+                };
+                RendezvousService consService = new RendezvousService(new GestionCabinetContext());
+                consService.UpdateRendezvous(updatedCons);
+                UpdateRdv_Load(sender, e);
+                FormRdv rdv = new FormRdv();
+                rdv.Show();
+                this.Hide();
+                MessageBox.Show("Update with sucsess !");
+            }
+           
         }
 
         private void medecinIDLabel_Click(object sender, EventArgs e)

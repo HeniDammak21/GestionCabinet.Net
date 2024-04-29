@@ -37,32 +37,37 @@ namespace Console
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(specialiteIDTextBox.Text);
-
-
-            string nom = nomSpecTextBox.Text;
-
-
-            var updateSpecialite = new Specialite
+            if (nomSpecTextBox.Text == "")
             {
-                SpecialiteID = id,
-                nomSpec = nom,
-            };
+                MessageBox.Show("Be careful, informration is empty !");
+            }
+            else
+            {
+                int id = int.Parse(specialiteIDTextBox.Text);
 
 
-            SpecialiteService specialiteService = new SpecialiteService(new GestionCabinetContext());
-            specialiteService.UpdateSpecilaite(updateSpecialite);
-            UpdateSpec_Load(sender, e);
-            FormSpec spec = new FormSpec();
-            spec.Show();
-            this.Hide();
+                string nom = nomSpecTextBox.Text;
+
+
+                var updateSpecialite = new Specialite
+                {
+                    SpecialiteID = id,
+                    nomSpec = nom,
+                };
+
+
+                SpecialiteService specialiteService = new SpecialiteService(new GestionCabinetContext());
+                specialiteService.UpdateSpecilaite(updateSpecialite);
+                UpdateSpec_Load(sender, e);
+                FormSpec spec = new FormSpec();
+                spec.Show();
+                this.Hide();
+                MessageBox.Show("Update with sucsess !");
+            }
+        }
+            
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            FormSpec spec = new FormSpec();
-            spec.Show();
-            this.Hide();
-        }
-    }
+       
+    
 }

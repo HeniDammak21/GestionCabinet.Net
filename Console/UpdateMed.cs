@@ -39,34 +39,51 @@ namespace Console
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(medecinIDTextBox.Text);
-
-
-            string nom = nomMedTextBox.Text;
-            string prenom = prenomMedTextBox.Text;
-            string adr = adreMedTextBox.Text;
-            int numtel = Convert.ToInt32(numTelTextBox.Text);
-            int specialiteID = Convert.ToInt32(comboBox1.SelectedValue);
-
-
-
-            var updatedMed = new Medecin
+            if (prenomMedTextBox.Text == "" || nomMedTextBox.Text == "" || numTelTextBox.Text == "" || adreMedTextBox.Text == "")
             {
-                MedecinID = id,
-                nomMed = nom,
-                prenomMed = prenom,
-                adreMed = adr,
-                numTel = numtel,
+                MessageBox.Show("Be careful, informration is empty !");
+            }
+            else {
+                try
+                {
+                    int id = int.Parse(medecinIDTextBox.Text);
 
-                SpecialiteID = specialiteID,
 
-            };
-            MedecinService medService = new MedecinService(new GestionCabinetContext());
-            medService.UpdateMedecin(updatedMed);
-            UpdateMed_Load(sender, e);
-            FormMed med = new FormMed();
-            med.Show();
-            this.Hide();
+                    string nom = nomMedTextBox.Text;
+                    string prenom = prenomMedTextBox.Text;
+                    string adr = adreMedTextBox.Text;
+                    int numtel = Convert.ToInt32(numTelTextBox.Text);
+                    int specialiteID = Convert.ToInt32(comboBox1.SelectedValue);
+
+
+
+                    var updatedMed = new Medecin
+                    {
+                        MedecinID = id,
+                        nomMed = nom,
+                        prenomMed = prenom,
+                        adreMed = adr,
+                        numTel = numtel,
+
+                        SpecialiteID = specialiteID,
+
+                    };
+                    MedecinService medService = new MedecinService(new GestionCabinetContext());
+                    medService.UpdateMedecin(updatedMed);
+                    UpdateMed_Load(sender, e);
+                    FormMed med = new FormMed();
+                    med.Show();
+                    this.Hide();
+                    MessageBox.Show("Update with sucsess !");
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Phone number invalid !");
+                }
+
+            }
+
+           
 
         }
 

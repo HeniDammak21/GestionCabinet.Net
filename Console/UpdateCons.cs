@@ -51,29 +51,37 @@ namespace Console
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(consultationIDTextBox.Text);
-
-
-            string date = dateConsTextBox.Text;
-            string recap = recapConsTextBox.Text;
-            int patientID = Convert.ToInt32(comboBox1.SelectedValue);
-
-
-
-            var updatedCons = new Consultation
+            if (dateConsTextBox.Text == "" || recapConsTextBox.Text == "")
             {
-                ConsultationID = id,
-                dateCons = date,
-                recapCons = recap,
-                PatientID = patientID,
+                MessageBox.Show("Be careful, informration is empty !");
+            }
+            else {
+                int id = int.Parse(consultationIDTextBox.Text);
 
-            };
-            ConsultationService consService = new ConsultationService(new GestionCabinetContext());
-            consService.UpdateConsultation(updatedCons);
-            UpdateCons_Load(sender, e);
-            FormConsultation cons = new FormConsultation();
-            cons.Show();
-            this.Hide();
+
+                string date = dateConsTextBox.Text;
+                string recap = recapConsTextBox.Text;
+                int patientID = Convert.ToInt32(comboBox1.SelectedValue);
+
+
+
+                var updatedCons = new Consultation
+                {
+                    ConsultationID = id,
+                    dateCons = date,
+                    recapCons = recap,
+                    PatientID = patientID,
+
+                };
+                ConsultationService consService = new ConsultationService(new GestionCabinetContext());
+                consService.UpdateConsultation(updatedCons);
+                UpdateCons_Load(sender, e);
+                FormConsultation cons = new FormConsultation();
+                cons.Show();
+                this.Hide();
+                MessageBox.Show("Update with success !");
+            }
+            
         }
     }
 }

@@ -89,5 +89,11 @@ namespace Console
             med.Show();
             this.Hide();
         }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+
+        }
     }
 }
