@@ -72,8 +72,7 @@ namespace Console
                 {
                     MessageBox.Show("Phone number invalid !");
                 }
-                
-                
+               
             }
             
         }

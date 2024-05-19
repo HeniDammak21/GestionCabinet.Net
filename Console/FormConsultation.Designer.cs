@@ -132,7 +132,7 @@ namespace Console
             this.consultationsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.consultationsBindingNavigator.Name = "consultationsBindingNavigator";
             this.consultationsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.consultationsBindingNavigator.Size = new System.Drawing.Size(1058, 27);
+            this.consultationsBindingNavigator.Size = new System.Drawing.Size(1058, 31);
             this.consultationsBindingNavigator.TabIndex = 3;
             this.consultationsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -142,7 +142,7 @@ namespace Console
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
             // 
             // bindingNavigatorCountItem
@@ -410,11 +410,11 @@ namespace Console
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(79)))), ((int)(((byte)(100)))));
-            this.label1.Location = new System.Drawing.Point(225, 77);
+            this.label1.Location = new System.Drawing.Point(243, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(433, 46);
+            this.label1.Size = new System.Drawing.Size(388, 41);
             this.label1.TabIndex = 80;
             this.label1.Text = "Gestion Consultations";
             // 
@@ -422,7 +422,7 @@ namespace Console
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(681, 77);
+            this.pictureBox2.Location = new System.Drawing.Point(667, 77);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(71, 51);
             this.pictureBox2.TabIndex = 81;

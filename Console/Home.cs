@@ -61,13 +61,7 @@ namespace Console
             this.Hide();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            
-            FormMed med = new FormMed();
-            med.Show();
-            this.Hide();
-        }
+       
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -85,8 +79,8 @@ namespace Console
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-            FormMed med = new FormMed();
-            med.Show();
+            FormMed m = new FormMed();
+            m.Show();
             this.Hide();
         }
 

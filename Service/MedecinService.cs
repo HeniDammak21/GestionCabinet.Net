@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    public class MedecinService
+    public class MedecinService : IMedecinService
     {
         private readonly GestionCabinetContext _context;
 

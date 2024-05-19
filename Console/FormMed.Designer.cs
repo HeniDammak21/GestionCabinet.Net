@@ -33,6 +33,8 @@ namespace Console
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMed));
             this.medecinsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.medecinsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gestionCabinetDataSet = new Console.GestionCabinetDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -45,6 +47,12 @@ namespace Console
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.medecinsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.medecinsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,14 +70,6 @@ namespace Console
             this.button9 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medecinsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gestionCabinetDataSet = new Console.GestionCabinetDataSet();
             this.patientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gestionCabinetDataSet1 = new Console.GestionCabinetDataSet();
             this.medecinsTableAdapter = new Console.GestionCabinetDataSetTableAdapters.MedecinsTableAdapter();
@@ -82,10 +82,10 @@ namespace Console
             this.tableAdapterManager1 = new Console.GestionCabinetDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.medecinsBindingNavigator)).BeginInit();
             this.medecinsBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.medecinsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medecinsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionCabinetDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medecinsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionCabinetDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.specialitesBindingSource)).BeginInit();
@@ -120,7 +120,7 @@ namespace Console
             this.medecinsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.medecinsBindingNavigator.Name = "medecinsBindingNavigator";
             this.medecinsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.medecinsBindingNavigator.Size = new System.Drawing.Size(1058, 27);
+            this.medecinsBindingNavigator.Size = new System.Drawing.Size(1058, 31);
             this.medecinsBindingNavigator.TabIndex = 0;
             this.medecinsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -130,13 +130,23 @@ namespace Console
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
+            // 
+            // medecinsBindingSource
+            // 
+            this.medecinsBindingSource.DataMember = "Medecins";
+            this.medecinsBindingSource.DataSource = this.gestionCabinetDataSet;
+            // 
+            // gestionCabinetDataSet
+            // 
+            this.gestionCabinetDataSet.DataSetName = "GestionCabinetDataSet";
+            this.gestionCabinetDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 28);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
             // 
@@ -146,7 +156,7 @@ namespace Console
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorDeleteItem.Text = "Supprimer";
             // 
             // bindingNavigatorMoveFirstItem
@@ -155,7 +165,7 @@ namespace Console
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Placer en premier";
             // 
             // bindingNavigatorMovePreviousItem
@@ -164,18 +174,19 @@ namespace Console
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Déplacer vers le haut";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -184,7 +195,7 @@ namespace Console
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -192,7 +203,7 @@ namespace Console
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Déplacer vers le bas";
             // 
             // bindingNavigatorMoveLastItem
@@ -201,20 +212,20 @@ namespace Console
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Placer en dernier";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // medecinsBindingNavigatorSaveItem
             // 
             this.medecinsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.medecinsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("medecinsBindingNavigatorSaveItem.Image")));
             this.medecinsBindingNavigatorSaveItem.Name = "medecinsBindingNavigatorSaveItem";
-            this.medecinsBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
+            this.medecinsBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
             this.medecinsBindingNavigatorSaveItem.Text = "Enregistrer les données";
             this.medecinsBindingNavigatorSaveItem.Click += new System.EventHandler(this.medecinsBindingNavigatorSaveItem_Click);
             // 
@@ -238,6 +249,49 @@ namespace Console
             this.medecinsDataGridView.RowTemplate.Height = 24;
             this.medecinsDataGridView.Size = new System.Drawing.Size(760, 270);
             this.medecinsDataGridView.TabIndex = 18;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "MedecinID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "MedecinID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "nomMed";
+            this.dataGridViewTextBoxColumn2.HeaderText = "nomMed";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "prenomMed";
+            this.dataGridViewTextBoxColumn3.HeaderText = "prenomMed";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "numTel";
+            this.dataGridViewTextBoxColumn4.HeaderText = "numTel";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "SpecialiteID";
+            this.dataGridViewTextBoxColumn5.HeaderText = "SpecialiteID";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "adreMed";
+            this.dataGridViewTextBoxColumn6.HeaderText = "adreMed";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // label6
             // 
@@ -341,11 +395,11 @@ namespace Console
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(79)))), ((int)(((byte)(100)))));
             this.label1.Location = new System.Drawing.Point(350, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(356, 46);
+            this.label1.Size = new System.Drawing.Size(315, 41);
             this.label1.TabIndex = 40;
             this.label1.Text = "Gestion Medecins";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -409,7 +463,7 @@ namespace Console
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(735, 68);
+            this.pictureBox2.Location = new System.Drawing.Point(695, 63);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(65, 59);
             this.pictureBox2.TabIndex = 52;
@@ -426,59 +480,6 @@ namespace Console
             this.button2.TabIndex = 77;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "MedecinID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "MedecinID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "nomMed";
-            this.dataGridViewTextBoxColumn2.HeaderText = "nomMed";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "prenomMed";
-            this.dataGridViewTextBoxColumn3.HeaderText = "prenomMed";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "numTel";
-            this.dataGridViewTextBoxColumn4.HeaderText = "numTel";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "SpecialiteID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "SpecialiteID";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "adreMed";
-            this.dataGridViewTextBoxColumn6.HeaderText = "adreMed";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // medecinsBindingSource
-            // 
-            this.medecinsBindingSource.DataMember = "Medecins";
-            this.medecinsBindingSource.DataSource = this.gestionCabinetDataSet;
-            // 
-            // gestionCabinetDataSet
-            // 
-            this.gestionCabinetDataSet.DataSetName = "GestionCabinetDataSet";
-            this.gestionCabinetDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // patientsBindingSource
             // 
@@ -565,10 +566,10 @@ namespace Console
             ((System.ComponentModel.ISupportInitialize)(this.medecinsBindingNavigator)).EndInit();
             this.medecinsBindingNavigator.ResumeLayout(false);
             this.medecinsBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.medecinsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medecinsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionCabinetDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medecinsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionCabinetDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.specialitesBindingSource)).EndInit();
